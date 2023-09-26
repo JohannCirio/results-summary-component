@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    button, 
+    input[type="button"], 
+    input[type="submit"], 
+    input[type="reset"] {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      outline: none;
+      -webkit-appearance: none; /* Para Chrome e Safari */
+      -moz-appearance: none;    /* Para Firefox */
+      appearance: none;         /* Propriedade padrão */
+      font-family: inherit;     /* Para herdar a fonte do elemento pai */
+      font-size: inherit;       /* Para herdar o tamanho da fonte do elemento pai */
+      cursor: pointer;          /* Para manter o cursor como ponteiro */
+      color: inherit;           /* Para herdar a cor do elemento pai */
+    }
+
+    body {
+      background-color: lightgray;
+    }
+
+    @font-face {
+      font-family: mainFont;
+      src: url(./assets/fonts/static/HankenGrotesk-Medium.ttf);
+    }
+
+    @font-face {
+      font-family: fontBold;
+      src: url(./assets/fonts/static/HankenGrotesk-Bold.ttf);
+    }
+
+    @font-face {
+      font-family: extraBold;
+      src: url(./assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+    }
+
+    .card {
+      display: flex;
+      font-family: mainFont;
+      margin: 5px;
+      width: 736px;
+      border-radius: 32px;
+      background-color: white;
+    }
+    .main-result {
+      height: 512px;
+      width: 50%;
+      background: linear-gradient( #6943FF, #2F2CE9);
+      border-radius: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .main-result-title {
+      color: #CAC9FF;
+      font-size: 24px;
+      margin-top: 38px;
+      margin-bottom: 35px;
+    }
+
+    .main-circle {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      background: linear-gradient( rgba(77, 33, 201, 1),rgba(37, 33, 201, 0));
+      text-align: center;
+    }
+
+    .main-result-value {
+      margin-top: 50px;
+      font-family: extraBold;
+      color: white;
+      font-size: 72px;
+    }
+
+    .main-result-subtitle {
+      color: #CAC9FF;
+      font: fontBold;
+      font-size: 18px;
+      
+    }
+
+    .main-result-lower-title {
+      font-size: 32px;
+      color: #FFFFFF;
+      margin-top: 28px;
+      margin-bottom: 14px;
+    }
+
+    .main-result-explanation {
+      font-size: 18px;
+      color: #CAC9FF;
+      margin-left: 54px;
+      margin-right: 54px;
+      text-align: center;
+    }
+
+    .summary { 
+      width: 50%;
+    }
+
+    .summary-elements {
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 38px;
+      
+    }
+
+    .summary-title {
+      font-size: 24px;
+      color: #303B59;
+      margin-bottom: 28px;
+    }
+
+    .area-result {
+      height: 56px;
+      width: 100%;
+      background: grey;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-radius: 12px;
+    }
+
+    div.area-result:last-of-type {
+      margin-bottom: 44px;
+    }
+
+
+
+    .area {
+      display: flex;
+      gap: 12px;
+      margin-left: 16px;
+    }
+
+    .area-icon {
+      height: 20px;
+    }
+
+    .area-result-text {
+      margin-right: 16px;
+      color: gray;
+      font-family: fontBold;
+  
+    }
+
+    .area-result-value {
+      color: #303B59;
+
+    }
+
+    .memory-color {
+      color: rgba(255, 178, 30, 1);
+      background-color: rgba(255, 178, 30, 15%);
+    }
+
+    .reaction-color {
+      color: rgba(255, 85, 85, 1);
+      background-color: rgba(255, 85, 85, 15%);
+    }
+
+    .verbal-color {
+      color: rgba(0, 187, 143, 1);
+      background-color: rgba(0, 187, 143, 15%);
+    }
+
+    .visual-color {
+      color: rgba(17, 37, 214, 1);
+      background-color: rgba(17, 37, 214, 15%);
+    }
+
+    .main-button {
+      background-color: #303B59;
+      color: white;
+      width: 100%;
+      height: 56px;
+      border-radius: 35px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="main-result">
+      <div>
+        <h2 class="main-result-title">Your Result</h2>
+      </div>
+      <div class="main-circle">
+        <p class="main-result-value">76</p>
+        <p class="main-result-subtitle">of 100</p>
+      </div>
+      <h3 class="main-result-lower-title">Great</h3>
+      <p class="main-result-explanation">Your performance exceed 65% of the people conducting the test here!</p>
+    </div>
+    <div class="summary">
+      <div class="summary-elements">
+
+        <h2 class="summary-title">Summary</h2>
+
+        <div class="area-result reaction-color">
+          <div class="area">
+            <img class="area-icon" src="./assets/images/icon-reaction.svg">
+            <p class="area-name">Reaction</p>
+          </div>
+          <p class="area-result-text"><span id="area-result-value" class="area-result-value">80</span> / 100</p>
+        </div>
+
+        <div class="area-result memory-color">
+          <div class="area">
+            <img class="area-icon" src="./assets/images/icon-memory.svg">
+            <p class="area-name">Memory</p>
+          </div>
+          <p class="area-result-text"><span class="area-result-value">92</span> / 100</p>
+        </div>
+
+        <div class="area-result verbal-color">
+          <div class="area">
+            <img class="area-icon" src="./assets/images/icon-verbal.svg">
+            <p class="area-name">Verbal</p>
+          </div>
+          <p class="area-result-text"><span class="area-result-value">61</span> / 100</p>
+        </div>
+
+        <div class="area-result visual-color">
+          <div class="area">
+            <img class="area-icon" src="./assets/images/icon-visual.svg">
+            <p class="area-name">Visual</p>
+          </div>
+          <p class="area-result-text"><span class="area-result-value">73</span> / 100</p>
+        </div>
+
+        <button class="main-button">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Johann</a>.
+  </div>
+</body>
+</html>
